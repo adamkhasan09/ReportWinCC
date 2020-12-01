@@ -1,0 +1,16 @@
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\bin\Debug\ReportWinCC.exe.config
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\bin\Debug\ReportWinCC.exe
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\bin\Debug\ReportWinCC.pdb
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.csprojAssemblyReference.cache
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.csproj.ResolveComReference.cache
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.csproj.CoreCompileInputs.cache
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.exe
+C:\Users\Nerojeck\source\repos\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.pdb
+F:\Projects\VS\ReportWinCC\ReportWinCC\bin\Debug\ReportWinCC.exe.config
+F:\Projects\VS\ReportWinCC\ReportWinCC\bin\Debug\ReportWinCC.exe
+F:\Projects\VS\ReportWinCC\ReportWinCC\bin\Debug\ReportWinCC.pdb
+F:\Projects\VS\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.csprojAssemblyReference.cache
+F:\Projects\VS\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.csproj.ResolveComReference.cache
+F:\Projects\VS\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.csproj.CoreCompileInputs.cache
+F:\Projects\VS\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.exe
+F:\Projects\VS\ReportWinCC\ReportWinCC\obj\Debug\ReportWinCC.pdb

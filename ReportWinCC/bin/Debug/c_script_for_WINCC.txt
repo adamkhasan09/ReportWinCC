@@ -1,0 +1,80 @@
+#include "apdefap.h"
+typedef struct 
+{
+ char *property;
+ char *value;
+} CFG;
+#define lineCount 35
+
+static CFG dataCFG[lineCount]=
+{
+ //базовые параметры
+ {"appPath",		"F:\\Projects\\VS\\ReportWinCC\\ReportWinCC\\bin\\Debug\\"}, //1 путь до приложения
+ {"cfgFileName",		"cfg.txt"}, //2
+ {"startTime",		}, //3
+ {"endTime",		}, //4
+ {"index",		      }, //5
+ {"startPointX",		"6"},  //6 начальная точка X
+ {"startPointY",		"1"},  //7 начальная точка Y 
+ {"delColumnNames",	"ID,Fingerprint"}, //8 Наименование удаляемых стобцов. БЕЗ ПРОБЕЛА ЧЕРЕЗ ЗАПЯТУЮ
+ {"delimiter",		","},  //9 Делитель который указан в 6 пункте
+ {"saveAs",			"F:\\Projects\\VS\\ReportWinCC\\ReportWinCC\\bin\\Debug\\save\\Analog_"}, 	//10 Папка для сохранения файла
+ {"serverName",		}, 	//11 имя сервера
+ {"dbName",			GetTagChar("@DatasourceNameRT")},//12 имя бд
+ {"tableNameDaysTechnology",		"UA#Days"}, //13 Наименование таблиц в базе технологические дневные
+ {"tableNameHoursTechnology",		"UA#Hours"}, //14 Наименование таблиц в базе технологические суточные
+ {"tableNameDaysCounter",		"UA#Days_Counter"}, //15 Наименование таблиц в базе счетчиков дневные
+ {"tableNameHoursCounter",		"UA#Hours_Counter"}, //16 Наименование таблиц в базе счетчиков суточные
+ {"filter", }, //17 параметры фильтрации получаес с тега
+ {"queryType", }, //18 TEXNOLOG или COUNTER получение информации GET_INFO
+ //базовые параметры конец
+ // оформление
+ {"header",			"FALSE"},  //19 заголовок header
+ {"border",			"TRUE"}, //20 обводка border
+ {"startTimeX",		"3"}, //21
+ {"startTimeY",		"3"}, //22
+ {"endTimeX",		"5"}, //23
+ {"endTimeY",		"3"}, //24
+ {"textTechH",		"Двухчасовой отчет по технологическим параметрам"}, //25
+ {"textTechD",		"Суточный отчет по технологическим параметрам"}, //26
+ {"textCountH",		"Двухчасовой отчет по параметрам счеткиков"}, //27
+ {"textCountD",		"Суточный отчет по параметрам счеткиков"}, //28
+ {"textX",		"2"}, //29
+ {"textY",		"2"}, //30
+ {"editFont",	"TRUE"}, //31
+ {"font",		"Arial"}, //32
+ {"fontSize",	"12"}, //33
+ // оформление конец
+ //наименование ШАБЛОНА
+ {"templateName",	"base_template.xlsx"}, //34
+ {"sheetNumber",	"1"}, //35 страница в excel
+
+};
+void export_config(char* lpszPictureName, char* serverName, char* dbName, char* filter,char* reportType)
+{
+FILE *fp;
+int i;
+char tmpPath[256];
+ //============================Получаем из формы чтобы не было проблем с кодировкой================================
+dataCFG[2].value = GetPropChar(lpszPictureName,"FirstDate","Value");	//Return-Type: char* 
+dataCFG[3].value = GetPropChar(lpszPictureName,"SecondDate","Value");
+dataCFG[4].value = GetPropChar(lpszPictureName,"Combobox1","SelIndex");
+dataCFG[10].value = serverName;
+dataCFG[11].value = dbName;
+dataCFG[16].value = filter;
+dataCFG[17].value = reportType;
+ //============================Получаем из формы чтобы не было проблем с кодировкой конец================================
+
+ //============================Сохранение в файл ================================
+    sprintf(tmpPath,"%s%s",dataCFG[0].value,dataCFG[1].value);
+    fp = fopen (tmpPath, "w");
+    for(i=0; i < lineCount; i++)
+    {
+	fprintf(fp,"%s:=%s\n",dataCFG[i].property,dataCFG[i].value);
+    }
+    fclose(fp);
+  //============================Сохранение в файл конец ================================
+sprintf(tmpPath,"%s%s",dataCFG[0].value,"exec.bat");
+printf(tmpPath);
+ProgramExecute(tmpPath);	//Return-Type: unsigned long int 
+}
